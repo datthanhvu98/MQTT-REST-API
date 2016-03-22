@@ -6,7 +6,7 @@ var port = Number(process.env.PORT || 4444);
 
 server.connection({ port: port, routes: { cors: true } });
 
-var client  = mqtt.connect('mqtt://test.mosquitto.org:1883');
+var client = mqtt.connect({port : 1883 , host : '192.168.10.106' , clientId: 'hachi' , username : 'guest' , password : '123456'});
 
 var mqttPublish = function(topic, msg){
   client.publish(topic, msg, function() {
